@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>下载 Tessera · 7kai</title>
+<meta name="description" content="下载 Tessera：本地优先的 Windows 个人记录软件。">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="下载 Tessera">
+<meta property="og:description" content="本地优先的 Windows 个人记录软件">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111'/%3E%3Ctext x='32' y='43' font-size='30' font-family='monospace' font-weight='700' text-anchor='middle' fill='%23fff'%3E7k%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #fafaf7;
+    --fg: #16181d;
+    --muted: #6b7280;
+    --line: #e4e4de;
+    --card: #ffffff;
+    --accent: #2f6df6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --fg: #eceef2;
+      --muted: #9097a3;
+      --line: #252932;
+      --card: #161a21;
+      --accent: #7aa2ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
+  }
+  main { width: 100%; max-width: 560px; }
+  a { color: var(--accent); }
+  .back { display: inline-block; margin-bottom: 2rem; font-size: .9rem; text-decoration: none; }
+  h1 { margin: 0 0 .3em; font-size: clamp(2.6rem, 11vw, 4rem); line-height: 1.05; letter-spacing: -.03em; }
+  .sub { margin: 0 0 2.5rem; color: var(--muted); }
+  .card {
+    display: block;
+    margin-bottom: 14px;
+    padding: 18px 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    color: inherit;
+    text-decoration: none;
+  }
+  a.card:hover, a.card:focus-visible { border-color: var(--accent); }
+  .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .row span { color: var(--accent); white-space: nowrap; font-size: .95rem; }
+  .card p { margin: .35rem 0 0; color: var(--muted); font-size: .95rem; }
+  .code { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: -4px 0 14px; padding: 0 4px; color: var(--muted); font-size: .95rem; }
+  .code code { color: var(--fg); font-size: 1.05rem; letter-spacing: .08em; }
+  button {
+    padding: 3px 12px;
+    background: var(--card);
+    color: var(--fg);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font: inherit;
+    font-size: .85rem;
+    cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); }
+  .note { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+  .note p { margin: 0 0 .6rem; }
+  footer { margin-top: 2rem; font-size: .85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← 7kai</a>
+  <h1>Tessera</h1>
+  <p class="sub">本地优先的 Windows 个人记录软件。<br>写日记、记数字、回看历史、画趋势图，数据只存在你自己的电脑上。</p>
+
+  <a class="card" href="https://github.com/qikaiLab/tessera/releases">
+    <div class="row"><strong>GitHub Releases</strong><span>前往下载 →</span></div>
+    <p>全部版本与更新说明。下载文件名形如 Tessera-Setup-x.y.z.exe 的安装包。</p>
+  </a>
+
+  <a class="card" href="https://pan.baidu.com/s/1AfcTM4plzMaP6fK9rEROXA?pwd=7k7k">
+    <div class="row"><strong>百度网盘</strong><span>前往下载 →</span></div>
+    <p>访问 GitHub 较慢时使用。</p>
+  </a>
+  <div class="code">
+    <span>提取码</span><code id="pwd">7k7k</code>
+    <button type="button" id="copy">复制</button>
+  </div>
+
+  <div class="note">
+    <p>适用于 Windows 10 / 11（64 位）。</p>
+    <p>安装包没有代码签名，首次运行时 Windows SmartScreen 可能弹出警告。可用 GitHub 发布页里的 SHA256SUMS.txt 校验下载的文件。</p>
+    <p><a href="https://github.com/qikaiLab/tessera">项目主页</a> · <a href="https://github.com/qikaiLab/tessera/issues">反馈问题</a></p>
+  </div>
+
+  <footer>© 2026 7kai</footer>
+</main>
+<script>
+  document.getElementById('copy').addEventListener('click', function () {
+    var button = this;
+    var done = function (text) {
+      button.textContent = text;
+      setTimeout(function () { button.textContent = '复制'; }, 1600);
+    };
+    if (!navigator.clipboard) return done('请手动复制');
+    navigator.clipboard.writeText(document.getElementById('pwd').textContent)
+      .then(function () { done('已复制'); }, function () { done('请手动复制'); });
+  });
+</script>
+</body>
+</html>
