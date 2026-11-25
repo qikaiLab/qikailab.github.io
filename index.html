@@ -61,11 +61,16 @@
     color: var(--muted);
   }
   .card {
+    display: block;
     padding: 18px 20px;
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 14px;
+    color: inherit;
+    text-decoration: none;
   }
+  a.card:hover, a.card:focus-visible { border-color: var(--accent); }
+  .more { margin: .9rem 0 0; font-size: .85rem; color: var(--muted); }
   .card .row {
     display: flex;
     justify-content: space-between;
@@ -104,10 +109,11 @@
 
   <section>
     <h2>项目 · Projects</h2>
-    <div class="card">
-      <div class="row"><strong>项目整理中</strong><span class="tag">即将更新</span></div>
-      <p>Projects are being organized. Check back soon.</p>
-    </div>
+    <a class="card" href="/download/">
+      <div class="row"><strong>Tessera</strong><span class="tag">下载 · Download →</span></div>
+      <p>本地优先的 Windows 个人记录软件。A local-first self-tracking app for Windows.</p>
+    </a>
+    <p class="more">更多项目整理中 · More coming soon</p>
   </section>
 
   <footer>© 2026 7kai</footer>
